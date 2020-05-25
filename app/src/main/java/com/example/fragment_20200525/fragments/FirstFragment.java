@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,7 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.fragment_20200525.R;
 import com.example.fragment_20200525.databinding.FragmentFirstBinding;
 
-public class FirstFragment extends Fragment {
+public class FirstFragment extends BaseFragment {
 
     FragmentFirstBinding binding;
 
@@ -29,16 +30,30 @@ public class FirstFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        setupEvents();
+        setValues();
+
 //        액티비티의 onCreate처럼 여러가지 기능 작성.
 
 
+       
+
+    }
+
+    @Override
+    public void setupEvents() {
         binding.okBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String input = binding.messageEdt.getText().toString();
                 binding.myTxt.setText(input);
+                Toast.makeText(mContext, "문구 변경 완료", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void setValues() {
 
     }
 }

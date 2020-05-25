@@ -14,9 +14,12 @@ import androidx.fragment.app.Fragment;
 import com.example.fragment_20200525.R;
 import com.example.fragment_20200525.databinding.FragmentSecondBinding;
 
-public class SecondFragment extends Fragment {
+public class SecondFragment extends BaseFragment{
+
     
     FragmentSecondBinding binding;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,6 +30,9 @@ public class SecondFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        setupEvents();
+        setValues();
+
 
         binding.toastBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,5 +41,15 @@ public class SecondFragment extends Fragment {
 
             }
         });
+    }
+
+    @Override
+    public void setupEvents() {
+
+    }
+
+    @Override
+    public void setValues() {
+
     }
 }
